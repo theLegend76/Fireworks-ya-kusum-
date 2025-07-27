@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ya Kusum Countdown</title>
+  <style>
+    body { background: black; color: white; font-family: monospace; text-align: center; padding-top: 50px; }
+    #message { font-size: 2em; margin-bottom: 20px; }
+    #countdown { font-size: 3em; color: yellow; }
+    .firework { color: red; font-size: 2em; margin-top: 30px; animation: explode 0.5s alternate infinite; }
+    @keyframes explode { from { transform: scale(1); } to { transform: scale(1.2); } }
+  </style>
+</head>
+<body>
+  <div id="message">ya kusum called me uncle</div>
+  <div id="countdown">123</div>
+  <div id="fireworks" style="display:none;">
+    <div class="firework">🎆🎇 Boom! Fireworks! 🎇🎆</div>
+  </div>
+  <script>
+    let count = 123;
+    const countdownEl = document.getElementById("countdown");
+    const fireworksEl = document.getElementById("fireworks");
+    const timer = setInterval(() => {
+      countdownEl.textContent = count;
+      count--;
+      if (count < 0) {
+        clearInterval(timer);
+        countdownEl.style.display = "none";
+        fireworksEl.style.display = "block";
+      }
+    }, 20);
+  </script>
+</body>
+</html>
